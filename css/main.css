@@ -1,4 +1,6 @@
-
+body {
+    background: #ececec;
+}
 
 .box {
 	display: flex;
@@ -13,13 +15,43 @@
 	display: block;
 	position: relative;
 	width: 50%;
-	background: #ececec;
-	box-shadow: 3px 3px 5px #333;
-	width: 300px;
+	color: #fff;
+	box-shadow: 2px 3px 5px #666;
+    border-radius: 5px;
 	height: 300px;
-	margin: 0 30px 100px;
 	line-height: 300px;
 	text-align: center;
+}
+
+.box:nth-child(1) .card {
+    background: #f44336;
+}
+
+.box:nth-child(2) .card {
+    background: #448aff;
+}
+
+.box:nth-child(3) .card {
+    background: #4caf50;
+}
+
+.box:nth-child(4) .card {
+    background: #ff5722;
+}
+
+.box .card:nth-child(1) {
+    margin-left: 5%;
+    margin-right: 2.5%;
+}
+
+.box .card:nth-child(2){
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.box .card:nth-child(3){
+    margin-left: 2.5%;
+    margin-right: 5%;
 }
 
 
