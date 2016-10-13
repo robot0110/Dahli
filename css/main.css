@@ -1,135 +1,12 @@
 
-* {margin: 20px; float: left;}
-/*---------------{ BUTTONS }---------------*/
-.btn, .primary-btn, .primary-btn-fill:hover, .secondary-btn, .secondary-btn-fill:hover, .accent-btn, .accent-btn-fill:hover {
-	padding: 12px 22px;
-	border-radius: 3px;
-	background: none;
-	transition: all .3s ease;
-	outline: none;
-	cursor: pointer;
-	display:  block;
-	position: relative;
-	overflow:  hidden;
-}
-
-.btn:hover, .primary-btn:hover, .primary-btn-fill:hover, .secondary-btn:hover, .secondary-btn-fill:hover, .accent-btn:hover, .accent-btn-fill:hover {
-	box-shadow: 0px 2px 9px #777;
-}
-
-.btn:active, .primary-btn:active, .primary-btn-fill:active:hover, .secondary-btn:active, .secondary-btn-fill:active:hover, .accent-btn:active, .accent-btn-fill:active:hover {
-	box-shadow: none;
-}
-
-.btn-fill, .primary-btn-fill, .secondary-btn-fill, .accent-btn-fill {
-	padding: 12px 22px;
-	border-radius: 3px;
-	transition: all .3s ease;
-	outline: none;
-	cursor: pointer;
-}
-
-.btn-fill:hover, .primary-btn-fill:hover, .secondary-btn-fill:hover, .accent-btn-fill:hover {
-	box-shadow: 0px 2px 9px #777;
-}
-
-.btn-fill:active, .primary-btn-fill:active, .secondary-btn-fill:active, .accent-btn-fill:active {
-	box-shadow: none;
-}
-
-.primary-btn {
-	border: 3px solid #0f2a33;
-	color: #0f2a33;
-}
-
-.primary-btn:hover {
-	color: #fff;
-	background: #0f2a33;
-}
-
-.primary-btn-fill {
-	border: 3px solid #0f2a33;
-	color: #fff;
-	background: #0f2a33;
-}
-
-.primary-btn-fill:hover {
-	background: #1b4a5a;
-	border: 3px solid #1b4a5a;
-}
-
-.secondary-btn {
-	border: 3px solid #0e4002;
-	color: #0e4002;
-}
-
-.secondary-btn:hover {
-	color: #fff;
-	background: #0e4002;
-}
-
-.secondary-btn-fill {
-	border: 3px solid #0e4002;
-	color: #fff;
-	background: #0e4002;
-}
-
-.secondary-btn-fill:hover {
-	background: #197104;
-	border: 3px solid #197104;
-}
-
-.accent-btn {
-	border: 3px solid #f6dd00;
-	color: #f6dd00;
-}
-
-.accent-btn:hover {
-	color: #fff;
-	background: #f6dd00;
-}
-
-.accent-btn-fill {
-	border: 3px solid #f6dd00;
-	color: #fff;
-	background: #f6dd00;
-}
-
-.accent-btn-fill:hover {
-	background: #ffe92a;
-	border: 3px solid #ffe92a;
-}
-
-/*  Ripple */
-/*
-.ripple {
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(0);
-  position: absolute;
-  opacity: 1;
-}
-.rippleEffect {
-    animation: rippleDrop .6s linear;
-}
-
-@keyframes rippleDrop {
-  100% {
-    transform: scale(5);
-    opacity: 0;
-  }
-} */
-
-/*---------------{ NAV BAR }---------------*/
 
 .box {
-	display: block;
+	display: flex;
 	position: relative;
 	width: 100%;
 	height: auto;
 	margin-top: 300px;
+    justify-content: center;
 }
 
 .card {
@@ -140,7 +17,7 @@
 	box-shadow: 3px 3px 5px #333;
 	width: 300px;
 	height: 300px;
-	margin-bottom: 100px;
+	margin: 0 30px 100px;
 	line-height: 300px;
 	text-align: center;
 }
