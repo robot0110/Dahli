@@ -1,21 +1,21 @@
 'using strict';
 
-
 var dali = {
 	elements: [],
-	config: function(options){
+	config: function(settings){
 
-		if (!options){
-			this.custom(options)
+		if (settings){
+			this.custom(settings)
 		} else {
-			this.getScreen()
-			this.loadArray()
+			this.getScreen();
+			this.loadArray();
 			this.setAnimationSpeed()
 			this.watch()
 		}
 	},
 	getScreen: function(){
 		this.mid = $(window).height() / 2
+		console.log(this.mid)
 	},
 	loadArray: function() {
 
@@ -88,18 +88,40 @@ var dali = {
 				}
 			}
 	},
-	custom: function(options) {
+	custom: function(settings) {
+		//check for options
+			//run code for that particular option
+			// if (options['reverse'] === true){
 
+			// 	this.checkElement = function(w){
+			// 		var that = this
+			// 		var elements = that.elements
+
+			// 		for (i = 0; i < elements.length; i++){
+			// 				if ( w.scrollTop() >= $(elements[i].el).offset().top - that.mid ) {
+			// 					$(elements[i].el).addClass( elements[i].transition )
+			// 				} else if ( w.scrollTop() <= $(elements[i].el).offset().top - that.mid ) {
+			// 					$(elements[i].el).addClass( elements[i].transition + 'out')
+			// 				}
+			// 			}
+			// 	}
+
+			// }
 		//set attr of all items of one class or id
 		//change the name of the attr to run the animation
 
 		//at the end run the default config to finish loading
+		console.log(settings)
 		this.config()
 	}
 
 }
 
-dali.config()
+var settings = {
+	reverse: true
+}
+
+dali.config(settings)
 
 
 
