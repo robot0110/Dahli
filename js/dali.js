@@ -2,6 +2,9 @@
 
 var dali = {
 	elements: [],
+	lastScroll: 0,
+	newScroll: 0,
+	scrollDirection: '',
 	config: function(settings){
 
 		if (settings){
@@ -15,14 +18,13 @@ var dali = {
 	},
 	getScreen: function(){
 		this.mid = $(window).height() / 2
-		console.log(this.mid)
 	},
 	loadArray: function() {
 
 		var that = this
 
 		$.each( $('[dali]'), function() {
-
+			$(this).addClass('dali')
 			var options = that.buildOptions(this)
 
 			var dali = {
@@ -76,6 +78,7 @@ var dali = {
 
 		var w = $(window).scroll(function() {
 			that.checkElement(w)
+			that.getLastScroll()
 		})
 	},
 	checkElement: function(w){
@@ -88,40 +91,87 @@ var dali = {
 				}
 			}
 	},
+	getLastScroll: function(){
+		this.newScroll = $(window).scrollTop()
+		if (this.newScroll > this.lastScroll){
+			this.lastScroll = this.newScroll
+			if (this.scrollDirection != 'down'){
+				this.scrollDirection = 'down'
+				console.log(this.scrollDirection)
+			}
+		} else {
+			this.lastScroll = this.newScroll
+			if (this.scrollDirection != 'up') {
+				this.scrollDirection = 'up'
+				console.log(this.scrollDirection)
+			}
+		}
+
+	},
 	custom: function(settings) {
 		//check for options
 			//run code for that particular option
-			// if (options['reverse'] === true){
+			if (settings.hasOwnProperty('reverse') && settings.reverse === true) {
+				
+				this.checkElement = function(w){
+					var that = this
+					var elements = that.elements
 
-			// 	this.checkElement = function(w){
-			// 		var that = this
-			// 		var elements = that.elements
+					for (i = 0; i < elements.length; i++){
 
-			// 		for (i = 0; i < elements.length; i++){
-			// 				if ( w.scrollTop() >= $(elements[i].el).offset().top - that.mid ) {
-			// 					$(elements[i].el).addClass( elements[i].transition )
-			// 				} else if ( w.scrollTop() <= $(elements[i].el).offset().top - that.mid ) {
-			// 					$(elements[i].el).addClass( elements[i].transition + 'out')
-			// 				}
-			// 			}
-			// 	}
+							if ( w.scrollTop() >= $(elements[i].el).offset().top - that.mid && that.scrollDirection === 'down') {
 
-			// }
+								$(elements[i].el).addClass( elements[i].transition ).removeClass( elements[i].transition + '-reverse'  )
+
+							} else if ( w.scrollTop() <= $(elements[i].el).offset().top - that.mid && that.scrollDirection === 'up') {
+
+								$(elements[i].el).addClass( elements[i].transition + '-reverse').removeClass( elements[i].transition  )
+
+							}
+					}
+				}
+			}
+			if (settings.hasOwnProperty('setClass') && settings.setClass != null) {
+
+				if (typeof settings.setClass === 'object'){
+
+					var size = Object.keys(settings.setClass).length;
+
+					var propList = []
+
+					for (var prop in settings.setClass){
+						
+						propList.push(prop)
+						propList.push(settings.setClass[prop])
+						console.log(propList)
+					}
+				}
+			
+				$(settings.setClass[0]).attr('dali', settings.setClass[1])
+			}
+			
 		//set attr of all items of one class or id
 		//change the name of the attr to run the animation
 
 		//at the end run the default config to finish loading
-		console.log(settings)
+
+	
+
 		this.config()
 	}
 
 }
 
-var settings = {
-	reverse: true
-}
 
-dali.config(settings)
+
+dali.config({
+	reverse: true,
+	setClass: ['.veno-box','fadeInUp']
+	// setClass: {
+	// 	'.card': 'fadeInRight',
+	// 	'.box': 'fadeInLeft'
+	// }
+})
 
 
 
